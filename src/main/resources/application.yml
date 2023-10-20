@@ -31,8 +31,11 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
-
-#cambio-service:
-#  ribbon:
-#    listOfServers: localhost:8000,localhost:8001
+resilience4j:
+  retry:
+    instances:
+      foo-bar:
+        max-attempts: 5
+        wait-duration: 1s
+        enable-exponential-backoff: true
 
