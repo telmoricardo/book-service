@@ -1,0 +1,16 @@
+-- CRIAR SEQUENCES --
+
+CREATE SEQUENCE BOOK_SEQ
+        INCREMENT BY 1
+        MINVALUE 1
+        START WITH 1;
+-- CRIAR TABELAS --
+
+CREATE TABLE BOOK
+(
+    ID                    BIGINT DEFAULT nextval('BOOK_SEQ') PRIMARY KEY NOT NULL,
+    AUTHOR                VARCHAR(255) NOT NULL,
+    LAUNCH_DATE           TIMESTAMP NOT NULL,
+    PRICE                 DECIMAL(65,2) NOT NULL,
+    TITLE                 VARCHAR(255) NOT NULL
+);

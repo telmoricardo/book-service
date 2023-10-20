@@ -1,0 +1,38 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: book-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  flyway:
+    url: jdbc:postgresql://localhost:5432/
+    user: postgres
+    password: postgres
+    table: flyway_schema_history
+    schemas: book_service
+    enabled: true
+    out-of-order: true
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+    default-property-inclusion: non_null
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+#cambio-service:
+#  ribbon:
+#    listOfServers: localhost:8000,localhost:8001
+
